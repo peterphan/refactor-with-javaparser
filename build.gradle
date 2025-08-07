@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.example'
@@ -15,8 +16,21 @@ dependencies {
     testImplementation 'com.github.javaparser:javaparser-symbol-solver-core:3.24.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    
+    // Add dependencies for the main application
+    implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.24.2'
 }
 
 test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass = 'TestRunner'
+}
+
+task runAnalysis(type: JavaExec) {
+    dependsOn 'compileTestJava'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'TestRunner'
 }

@@ -1,5 +1,7 @@
 # refactor-with-javaparser
 
+> Disclaimer: This is a test repository. Changes here are for testing purposes only.
+
 This repo is meant to showcase a bug with JavaParser's LexicalPreservingPrinter not preserving changes to VariableDeclarations.
 
 fffghf
